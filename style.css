@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica:ital@1&family=Ibarra+Real+Nova&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin: 30px 0 10px;
+}
+
+h1 {
+  font-family: 'IM Fell DW Pica', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 64px;
+}
+
+.btn-restart {
+  width: 53px;
+  height: 53px;
+  background-color: #d9d9d9;
+  border: 3px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 7px;
+}
+
+.restart-icon {
+  width: 46px;
+  height: 43px;
+  left: 1017px;
+  top: 114px;
+}
+
+/* CARDS */
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  height: 546px;
+  width: 767px;
+  gap: 29px 18px;
+}
+
+img {
+  filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.25));
+  flex-basis: 170px;
+}
+
+/* MOVES */
+.move-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+h3 {
+  font-family: 'IM FELL DW Pica', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  margin-bottom: 20px;
+}
+
+/* FOOTER */
+p {
+  text-align: center;
+  font-family: 'Ibarra Real Nova';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  margin: 5px;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
