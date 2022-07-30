@@ -65,19 +65,21 @@ const cardFlip = function () {
     document.querySelectorAll('.card').forEach((item) => {
       item.addEventListener('click', function () {
         // CLICK ONLY IF THE CARD ISN'T FLIPPED
-        if (!item.classList.contains('flipped-card')) {
-          // ONLY FLIP TWO FOR ROUND
-          item.classList.add('flipped-card');
-          let backCard = item.getElementsByClassName('back-card');
-          lastFlipped.push(backCard[0].innerHTML);
-          selectedCard.push(item);
-          // AFTER CLICKING IN TWO CARDS
-          if (lastFlipped.length === 2) {
-            moves++;
-            movesEl.textContent = moves;
-            setTimeout(checkForMatch, 600);
+        if (!item.classList.contains('flipped-card'))
+          if (lastFlipped.length < 2) {
+            // ONLY FLIP TWO FOR ROUND
+            item.classList.add('flipped-card');
+            let backCard = item.getElementsByClassName('back-card');
+            lastFlipped.push(backCard[0].innerHTML);
+            selectedCard.push(item);
+            // AFTER CLICKING IN TWO CARDS
+            if (lastFlipped.length === 2) {
+              play = false;
+              moves++;
+              movesEl.textContent = moves;
+              setTimeout(checkForMatch, 500);
+            }
           }
-        }
       });
     });
   }
@@ -87,15 +89,18 @@ const cardFlip = function () {
 const checkForMatch = function () {
   if (lastFlipped[0] === lastFlipped[1]) {
     console.log('It matches');
-    foundCards++;
-    if (selectedCard.length === pairsForRound * 2) {
+    foundCards = foundCards + 2;
+    if (foundCards === pairsForRound * 2) {
       play = false;
+      console.log('Jogo terminado', play);
     }
   } else {
     console.log('It doesnt');
     selectedCard[0].classList.toggle('flipped-card');
     selectedCard[1].classList.toggle('flipped-card');
   }
+  play = true;
+  console.log(foundCards);
   selectedCard = [];
   lastFlipped = [];
 };
